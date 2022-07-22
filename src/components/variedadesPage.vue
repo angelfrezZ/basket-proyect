@@ -24,15 +24,15 @@
           <v-list-item link>
             <v-list-item-content>
               <v-list-item-title class="text-h6">
-                Sandra Adams
+                {{$store.state.nombre}} 
               </v-list-item-title>
-              <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
+              <v-list-item-subtitle>{{$store.state.email}}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list>
         <v-card class="mx-auto" width="300">
           <v-list>
-            <v-list-item>
+            <v-list-item to="/">
               <v-list-item-icon>
                 <v-icon>mdi-home</v-icon>
               </v-list-item-icon>

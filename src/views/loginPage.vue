@@ -18,6 +18,10 @@
 	</div>
 </template>
 <script>
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import firebase from "@/firebase";
+
+
 export default {
 
 	data: () => ({
@@ -37,7 +41,19 @@ export default {
 
 	methods: {
 		validate() {
-			this.$refs.form.validate()
+			if (this.$refs.form.validate() == "") {
+				this.$refs.form.validate()
+			} else {
+				const auth = getAuth(firebase.app);
+				signInWithEmailAndPassword (auth, this.email, this.password)
+					.then((cred) => {
+						location.assign("/")
+						console.log(cred);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}
 		},
 		reset() {
 			this.$refs.form.reset()

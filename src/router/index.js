@@ -3,6 +3,11 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import login from '../views/loginPage.vue'
 import register from '../views/registerPage.vue'
+import form from '../views/formPage.vue'
+import zapatillas from '../NBA/zapatillasN.vue'
+import camisetas1 from '../NBA/camisetasOne.vue'
+import camisetas2 from '../NBA/camisetasTwo.vue'
+import camisetas3 from '../NBA/camisetasTree.vue'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import store from '../store/index.js';
 
@@ -13,6 +18,31 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: form
+  },
+  {
+    path: '/zapatillas',
+    name: 'zapatillas',
+    component: zapatillas
+  },
+  {
+    path: '/camisetas',
+    name: 'camisetas1',
+    component: camisetas1
+  },
+  {
+    path: '/camisetas/:id',
+    name: 'camisetas2',
+    component: camisetas2
+  },
+  {
+    path: '/camisetas/:id/comprar',
+    name: 'camisetas3',
+    component: camisetas3
   },
   {
     path: '/register',
