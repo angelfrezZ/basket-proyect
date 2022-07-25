@@ -31,8 +31,7 @@
 </template>
 
 <script>
-import { getDocs, collection, getFirestore } from "firebase/firestore";
-import firebase from "@/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 export default {
 	data: () => ({
@@ -45,13 +44,11 @@ export default {
 	methods: {
 		async initialize() {
 			let categoria = 'categoria/camisetas/mercancia'
-			const db = getFirestore(firebase.app)
-			const q = collection(db, categoria);
+			const q = collection(this.$store.state.db, categoria);
 			const Snapshot = await getDocs(q);
 			Snapshot.forEach((doc) => {
 				let data = doc.data()
 				data.id = doc.id
-				// console.log(data);
 				this.data.push(data)
 			});
 		}

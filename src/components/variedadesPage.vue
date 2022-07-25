@@ -24,9 +24,9 @@
           <v-list-item link>
             <v-list-item-content>
               <v-list-item-title class="text-h6">
-                {{$store.state.nombre}} 
+                {{ $store.state.user.displayName }} 
               </v-list-item-title>
-              <v-list-item-subtitle>{{$store.state.email}}</v-list-item-subtitle>
+              <v-list-item-subtitle>{{ $store.state.user.email }}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -117,7 +117,9 @@ export default {
     AboutDialog,
     CerrarSesion,
   },
-
+mounted(){
+  console.log(this.$store.state.nombre);
+}
 
 }
 </script>
